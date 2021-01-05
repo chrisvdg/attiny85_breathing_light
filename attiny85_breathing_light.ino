@@ -32,7 +32,7 @@ void setupIOSleep() {
 void loop() {
   float pulse_count = random(500, 5000);
   for (int i=0;i<pulse_count;i++){
-    float pwm_val = 255.0*(exp(-(pow(((i/smoothness_pts)-beta)/gamma, 2.0))/2.0));
+    float pwm_val = 255.0*(exp(-(pow(((i/pulse_count)-beta)/gamma, 2.0))/2.0));
     analogWrite(LEDPIN, int(pwm_val));
     pwmSleep();
   }
